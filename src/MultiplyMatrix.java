@@ -1,3 +1,4 @@
+
 public abstract class MultiplyMatrix {
 
 	private double startTime = 0;
@@ -8,7 +9,7 @@ public abstract class MultiplyMatrix {
 	}
 
 	public void setStartTime() {
-		this.startTime = System.currentTimeMillis();
+		this.startTime = System.nanoTime();
 	}
 
 	public double getFinalTime() {
@@ -16,7 +17,7 @@ public abstract class MultiplyMatrix {
 	}
 
 	public void setFinalTime() {
-		this.finalTime = System.currentTimeMillis() - startTime;
+		this.finalTime = (System.nanoTime() - startTime)/1000000;
 	}
 
 

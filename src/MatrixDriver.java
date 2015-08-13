@@ -1,8 +1,10 @@
+
 public class MatrixDriver {
 
 	public static void main(String[] args) {
 		
-		final int MATRIX_SIZE = 3; // Size of N, NxN matrices
+		final int SIZE = 8; //Size of nxn matrix, n = 2^SIZE
+		final int MATRIX_SIZE = (int) Math.pow(2, SIZE);
 
 		int[][] A = generateMatrix(MATRIX_SIZE);
 		//printMatrix(A);
@@ -10,13 +12,15 @@ public class MatrixDriver {
 		//System.out.println();
 		//printMatrix(B);
 		int[][] C;
+		//MultiplyMatrix m1 = new ClassicMultiply();
+		MultiplyMatrix m1 = new DivideAndConquerMultiply();
+		//MultiplyMatrix m1 = new StrassenMultiply();
 		
-		MultiplyMatrix m1 = new ClassicMultiply();
 		m1.setStartTime();
 		C = m1.multiplyMatrix(A, B);
 		m1.setFinalTime();
 		System.out.println("m1 final time: " + m1.getFinalTime() + " ms");
-		printMatrix(C);
+		//printMatrix(C);
 	}
 
 	// generate matrix nxn
@@ -46,8 +50,9 @@ public class MatrixDriver {
 	            System.out.println(str + "|");
 	            str = "|\t";
 	        }
-
-	    }catch(Exception e){System.out.println("Matrix is empty!!");}
+	    }catch(Exception e){
+	    	System.out.println("Error: Matrix is empty.");
+	    }
 	}
 
 }
