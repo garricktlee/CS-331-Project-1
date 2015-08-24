@@ -19,8 +19,7 @@ public abstract class MultiplyMatrix {
 	public void setFinalTime() {
 		this.finalTime = (System.nanoTime() - startTime)/1000000;
 	}
-
-
+	
 	abstract int[][] multiplyMatrix(int[][] A, int[][] B);
 
 }
